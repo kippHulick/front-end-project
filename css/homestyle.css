@@ -60,7 +60,7 @@
   
   @media(min-width: 960px){
     .card-grid{
-      grid-template-columns: repeat(3, 1fr); 
+      grid-template-columns: repeat(4, 1fr); 
     }
   }
   
@@ -68,6 +68,7 @@
     list-style: none;
     position: relative;
     height: 50%;
+ 
 
 }
   
@@ -119,7 +120,7 @@
   
   .card__heading{
     color: var(--text-lighter);
-    font-size: 1.9rem;
+    font-size: 20px;
     text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
     line-height: 1.4;
     word-spacing: 100vw;
@@ -144,6 +145,6 @@
     bottom: 0px;
     font-family: 'Lobster', cursive;
     height: 100%;
-    line-height: 3;
+    line-height: 4;
     text-decoration: underline;
 }
