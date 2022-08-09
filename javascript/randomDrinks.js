@@ -23,7 +23,23 @@ const randomDrinks = async () => {
 
 try{
     randomDrinks().then(data => {
-        console.log({data});
+        let htmlStr = ''
+        // console.log(data);
+        data.forEach(drinkObj => {
+            let drink = drinkObj.drinks[0]
+            console.log(drinkObj.drinks[0]);
+            let { strDrink, strDrinkThumb } = drink
+            htmlStr += `<a class="card" href="#">
+            <div class="card__background" style="background-image: url(${strDrinkThumb})"></div>
+            <div class="card__content">
+              <p class="card__category">Liquor</p>
+              <h3 class="card__heading">${strDrink}</h3>
+            </div>
+          </a>`
+        })
+
+        document.querySelector('.card-grid').innerHTML = htmlStr
+
     })
 }
 catch{
