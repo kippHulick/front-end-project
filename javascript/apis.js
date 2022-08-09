@@ -10,24 +10,25 @@ const randomDrinks = async () => {
     let promArr = []
     for(let i =0; i < 10; i++ ){
         let randDrink = await fetch('https://www.thecocktaildb.com/api/json/v2/9973533/random.php').then(resp => resp.json())
-        promArr = [...promArr, ...randDrink]
+        //promArr = [...promArr, randDrink]
+        promArr.push(randDrink)
     }
-    let promise = await Promise(promArr)
+    let promise = Promise.all(promArr)
     return promise
 }
 
-randomDrinks().then(data => {
-    console.log({data});
-})
+// randomDrinks().then(data => {
+//     console.log({data});
+// })
 
-// try{
-//     randomDrinks().then(data => {
-//         console.log({data});
-//     })
-// }
-// catch{
-//     console.log("Can't fetch the random drinks!");
-// }
+try{
+    randomDrinks().then(data => {
+        console.log({data});
+    })
+}
+catch{
+    console.log("Can't fetch the random drinks!");
+}
 
 
 // fetchResults = async function(){
