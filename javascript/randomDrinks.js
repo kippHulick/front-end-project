@@ -6,8 +6,8 @@
 // example URL https://api.edamam.com/api/nutrition-data?app_id=947442c5&app_key=7d67cd8d38672973b94c98b7764b8ff0&nutrition-type=cooking&ingr=1%20shot%20orange%20juice
 
 const drinkArr = []
-const modal = document.querySelector('#myModal')
-const closeModal = document.getElementsByClassName('closse')[0]
+const modal = document.querySelector('.modal')
+// const closeModal = document.getElementsByClassName('close')[0]
 
 const randomDrinks = () => {
     let promArr = []
@@ -49,7 +49,8 @@ cards.addEventListener('click', event => {
     // console.log(event.target.parentNode);
     let result = drinkArr.find(item => item.idDrink === id)
     if(result != undefined || null){
-        modal.style.display = 'block'
+        modal.classList.toggle("show-modal");
+        console.log(modal.classList);
         console.log({id});
         console.log(result);
     }
