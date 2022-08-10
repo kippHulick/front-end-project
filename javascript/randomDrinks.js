@@ -6,7 +6,7 @@
 // example URL https://api.edamam.com/api/nutrition-data?app_id=947442c5&app_key=7d67cd8d38672973b94c98b7764b8ff0&nutrition-type=cooking&ingr=1%20shot%20orange%20juice
 
 const drinkArr = []
-const modal = document.querySelector('.modal')
+const modal = document.querySelector('#modal')
 // const closeModal = document.getElementsByClassName('close')[0]
 
 const randomDrinks = () => {
@@ -16,6 +16,13 @@ const randomDrinks = () => {
         promArr.push(randDrink)
     }
     return Promise.all(promArr)
+}
+
+const nutritionalApi = (ingredientObj) => {
+    console.log(ingredientObj[0].key);
+    for(let i = 0; i < ingredientObj.length; i++)
+    nutrition = fetch(`https://api.edamam.com/api/nutrition-data?app_id=947442c5&app_key=7d67cd8d38672973b94c98b7764b8ff0&nutrition-type=cooking&ingr=${ingredientObj[0]}`).then(resp.json())
+    return nutrition
 }
 
 try{
@@ -45,13 +52,46 @@ catch{
 
 let cards = document.querySelector('.card-grid')
 cards.addEventListener('click', event => {
+    modal.innerHTML = `<h1 class="modal__title">Modal 1 Title</h1>
+    <p class="modal__text"> Lime</p>
+    <button class="modal__btn">Button &rarr;</button>`
+    console.log(modal);
+    modal.showModal();
     let id = event.target.parentNode.id
-    // console.log(event.target.parentNode);
     let result = drinkArr.find(item => item.idDrink === id)
     if(result != undefined || null){
-        modal.classList.toggle("show-modal");
-        console.log(modal.classList);
-        console.log({id});
-        console.log(result);
+        let ingredients = {}
+        for(let i = 0; i <15; i++){
+            let ingredient = `strIngredient${i}`
+            let measurement = `strMeasure${i}`
+            if(result[ingredient] != null){
+                if(result[measurement] != null){
+                    ingredients[result[ingredient]] = result[measurement]
+                }
+                else{
+                    ingredients[result[ingredient]] = 0
+                }
+            }
+        }
+        console.log(ingredients);
+        try{
+            nutritionalApi(ingredients).then(data => {
+                console.log(data);
+            })
+        }
+        catch{
+            console.log("can't get the nutritional data");
+        }
     }
 })
+
+let austinModal = `    <div class="modal-container" id="${modal.name}">
+  <div class="modal">
+    <h1 class="modal__title">Modal 1 Title</h1>
+    <p class="modal__text"> Lime</p>
+    <button class="modal__btn">Button &rarr;</button>
+    <a href="#m1-" class="link-2"></a>
+  </div>
+</div>
+</div>
+  </div>`
