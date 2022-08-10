@@ -2,8 +2,6 @@
 
 
 
-
-
 //This is a fraction converter, it handles mixed and standard fractions and returns a float value for that combination, it even handles speical character "½". Syntax for this function is ("1 1/4") ("20/100") ("½") etc.
 let fractionConverter = (fraction) =>{
     
@@ -43,16 +41,25 @@ return whole + decimal
 
 }
 
+//This function will convert 
+let partsConverter = () =>{
+
+}
 
 
-// Converts all ridiculous units of measurements used in the API to one standard unit, which is an oz.
+// Converts all ridiculous units of measurement used in the API to one standard unit, which is an oz.
 let convertToOz ={
+    'oz': 1,
     'shot': 1.5,
     'tsp': 0.174,
     'cl': 0.352,
     'tblsp': 0.5204,
+    'tbsp': 0.5204,
+    'pinch':0.021,
     'dash': 0.021,
+    'aboutdrops': 0.0022,
     'drop': 0.0022,
+    'chunk':1,
     'cube': 1,
     'wedge': 1,
     'small bottle':3,
@@ -61,15 +68,22 @@ let convertToOz ={
     'squeeze': .5,
     'cup': 8,
     'bottle': 25.4,
+    'milkeybottle': 25.4,
+    'largebottle': 34,
     'dl':3.52,
     'gr': 0.002286,
+    'l': 35.2,
     'ml': 0.035,
+    'addml': 0.035,
     'sprig': 0.071,
+    'largesprig': 0.9,
     'stick': 4,
     'can': 12,
     'glass': 12,
+    'fullglass': 12,
     'garnish': 0.2,
-    'strip': 1.5,
+    'inchstrips': 0.5,
+    'strip': .5,
     'jigger': 1.5,
     'package': 1,
     'gal': 133.23,
@@ -78,7 +92,9 @@ let convertToOz ={
     'splash': 0.5,
     'handful': 3,
     'scoop': 0.5,
-    'fifth':25.4 
+    'fifth':25.4, 
+    'topup': 1, 
+    'filltotopwith': 1,
 }
 
 //Used to determine weather a character in a string is a number, this is necessary to split up the values in a single string
@@ -88,7 +104,7 @@ let isNumber = {'1': true,'2':true,'3':true,'4':true,'5':true,'6':true,'7':true,
 let isLetter = {'a':true,'b':true,'c':true,'d':true,'e':true,'f':true,'g':true,'h':true,'i':true,'j':true,'k':true,'l':true,'m':true,'n':true,'o':true,'p':true,'q':true,'r':true,'s':true,'t':true,'u':true,'v':true,'w':true,'x':true,'y':true,'z':true,}
 
 
-let measurementConverter = (string) => {
+let measurementConverter = (string, url) => {
     
     string = string.toLowerCase()
     
@@ -110,12 +126,19 @@ let measurementConverter = (string) => {
             break
         }
     }
+
+    //This if statement ensures that measurements like "full glass" are still done correctly even if no numerical value is associated.
+    if(quantity == ''){
+        quantity = '1'
+    }
+
+    //This if statement removes a space being added to the end of a quantity, the reason this is being done becasuse the fraction converter does not like the space at the end of this string
     if(quantity[quantity.length -1] == ' '){
         
         quantity = quantity.slice(0, quantity.length -1)
         
     }
-    
+
     // This loop does the same as the other one except this one handles assigns the measurement type to unitType variable.
     // Both of these loops stop execution once a match is found, meaning for some measurements that have multiple types, it will only utilize the first match.
     for(let i = 0; i < string.length; i++){
@@ -137,10 +160,11 @@ let measurementConverter = (string) => {
         }
     }
 
-    if(unitType[unitType.length -1] == 's'){
-        console.log('wwhastsup');
+    if(unitType == 'part' || unitType == 'parts'){
+
+        partsConverter(url)
     }
-    
+
     let quantityArr = quantity.split('')
     
     if(quantityArr.indexOf('/') > 0){
@@ -148,12 +172,21 @@ let measurementConverter = (string) => {
         quantity = fractionConverter(quantity)
     }
     
+    if(unitType == ''){
+
+        return 'no unit type associated'
+    }
+
     let inOz = convertToOz[unitType]
+
     
     return quantity * inOz
 }
 
-measurnment
+
+
+
+
 
 // const getSizes = async () => {
     
