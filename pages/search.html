@@ -7,6 +7,8 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="../css/searchstyle.css">
+    <link rel="stylesheet" href="../css/rumstyle.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,15 +17,20 @@
 </head>
 <body>
     <span class="header">   
-        <h1>Cocktails</h1>
+        <h1>Search</h1>
   
     </span>
     <div class="box">
         <form name="search">
             <input type="text" class="input" name="txt" onmouseout="this.value = ''; this.blur();">
         </form>
-        <i class="fa fa-search"></i>
-    
+        <i class="fa fa-search" id="icon"></i>
     </div>
+    <section class="hero-section">
+        <div class="card-grid">
+        </div>
+    </section>        
+
+    <script src="../javascript/search.js"></script>    
 </body>
 </html>
