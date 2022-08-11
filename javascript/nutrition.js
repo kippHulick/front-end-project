@@ -27,6 +27,7 @@ let convertToOz ={
     'cl': 0.352,
     'qt': 33.31,
     'twist': 0,
+    'spoon': 0.5204,
     'juice': 2,
     'crushed': 0.5,
     'to': 1,
@@ -81,9 +82,6 @@ let isNumber = {'1': true,'2':true,'3':true,'4':true,'5':true,'6':true,'7':true,
 
 //Used to determine whether a character is a letter, you get the picture.
 let isLetter = {'a':true,'b':true,'c':true,'d':true,'e':true,'f':true,'g':true,'h':true,'i':true,'j':true,'k':true,'l':true,'m':true,'n':true,'o':true,'p':true,'q':true,'r':true,'s':true,'t':true,'u':true,'v':true,'w':true,'x':true,'y':true,'z':true,}
-
-let globalCache = {} //This global cache will keep track of the drinks that have already had a complete unit conversion, this is here in order to handle drinks that use parts. With drinks that don't use parts, measurements are dealt with one at a time, with drinks that do use parts, measurements need to be dealt with as a group.
-
 
 //This is a fraction converter, it handles mixed and standard fractions and returns a float value for that combination, it even handles speical character "½". Syntax for this function is ("1 1/4") ("20/100") ("½") etc.
 let fractionConverter = (fraction) =>{
@@ -237,3 +235,83 @@ const fetchNutrition = async (drinkObj) => {
         console.log("can't get the nutritional data");
     }
 }
+
+console.log();
+
+const appearModal = async (web) =>{
+
+    let drink = await fetch(web).then(resp => resp.json())
+
+    drink = drink.drinks[0]
+
+    console.log(drink);
+
+    
+    let calories = 0
+    let ingredients = []
+    let measurements = []
+    let instructions = ''
+    
+    fetchNutrition(drink).then((result) => {
+        for(let i = 0; i < result.length; i++){
+            
+            calories += result[i].calories
+        }
+    })
+    
+    for(let i = 0; i <15; i++){
+        let ingredient = `strIngredient${i}`
+        let measurement = `strMeasure${i}`
+        if(drink[ingredient] != null){
+            
+            ingredients.push(drink[ingredient])
+            measurements.push(drink[measurement])
+        }
+    }
+    
+    instructions = drink['strInstructions']
+    
+    
+    // console.log(calories);
+    // console.log(ingredients);
+    // console.log(measurements);
+    // console.log(instructions);
+    
+
+    // modal = document.querySelector('.md')
+    // modal.innerHTML =`      
+                    
+    return  `                 
+    
+    <div class="modal-container" id="${drink.idDrink}">
+    <div class="modal">
+      <h1 class="modal__title">${drink.strDrink}</h1>
+      <p class="modal__text"> ${calories}</p>
+      <p class="modal__text"> Ingredients ${ingredients} </p>
+      <p class="modal__text"> Measurements ${measurements}</p>
+      <p class="modal__text"> Instructions ${instructions}</p>
+      <button class="modal__btn">Button &rarr;</button>
+      <a href="#" class="link-2" id="x"></a>
+    </div>
+  </div>
+  </div>
+    </div>`
+
+    console.log(`
+    <div class="modal-container" id="${drink.idDrink}">
+    <div class="modal">
+    <h1 class="modal__title">${drink.strDrink}</h1>
+    <p class="modal__text"> Calories: ${calories}</p>
+    <p class="modal__text"> Ingredients ${ingredients} </p>
+    <p class="modal__text"> Measurements ${measurements}</p>
+    <p class="modal__text"> Instructions ${instructions}</p>
+    <button class="modal__btn">Button &rarr;</button>
+    <a href="#" class="link-2" id="x"></a>
+    </div>
+
+    `
+    );
+    
+}
+
+appearModal('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007')

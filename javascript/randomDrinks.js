@@ -61,6 +61,7 @@ let cards = document.querySelector('.card-grid')
 cards.addEventListener('click', event => {
     let id = event.target.parentNode.id
     let drink = drinkArr.find(item => item.idDrink === id)
+    console.log(drink);
     fetchNutrition(drink).then((result) => {
         console.log(result);
     })
