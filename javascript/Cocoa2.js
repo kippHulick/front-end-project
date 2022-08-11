@@ -46,41 +46,49 @@ const ordDrink = async () => {
 
 
     })
-
     document.addEventListener('click', e=>{
 
         if(e.target.id == 'card'){
 
-            let targetName = e.target.title
+            // let targetName = e.target.title
 
-            for(let i = 0; i < drinkInfoArr.length; i++){
+            // for(let i = 0; i < drinkInfoArr.length; i++){
 
-                if(drinkInfoArr[i].name == targetName){
+            //     if(drinkInfoArr[i].name == targetName){
 
-                    modal.innerHTML = `      
+            //         modal.innerHTML = `      
                     
-                    <div class="modal-container" id="${drinkInfoArr[i].id}">
-                    <div class="modal">
-                      <h1 class="modal__title">${drinkInfoArr[i].name}</h1>
-                      <p class="modal__text"> ${drinkInfoArr[i].category}</p>
-                      <button class="modal__btn">Button &rarr;</button>
-                      <a href="#" class="link-2" id="x"></a>
-                    </div>
-                  </div>
-                  </div>
-                    </div>`
-                }
-            }
+            //         <div class="modal-container" id="${drinkInfoArr[i].id}">
+            //         <div class="modal">
+            //           <h1 class="modal__title">${drinkInfoArr[i].name}</h1>
+            //           <p class="modal__text"> ${drinkInfoArr[i].category}</p>
+            //           <button class="modal__btn">Button &rarr;</button>
+            //           <a href="#" class="link-2" id="x"></a>
+            //         </div>
+            //       </div>
+            //       </div>
+            //         </div>`
+            //     }
+            // }
 
+            appearModal('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007').then((result)=>{
+
+
+                console.log(result);
+                modal.innerHTML = result
+            })
+
+            document.querySelector('.md').style.display = 'flex';
         }
 
-        modal.style.display = 'flex';
        
         if(e.target.id == 'x'){
             
             modal.style.display = 'none';
         }
     })
+
+
 
     cardgrid.innerHTML = htmlStr
   })
