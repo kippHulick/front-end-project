@@ -71,6 +71,7 @@
    display: inline-grid;
  
   }
+
   
   .card:before{
     content: '';
