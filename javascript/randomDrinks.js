@@ -60,42 +60,8 @@ catch{
 let cards = document.querySelector('.card-grid')
 cards.addEventListener('click', event => {
     let id = event.target.parentNode.id
-    let result = drinkArr.find(item => item.idDrink === id)
-    if(result != undefined || null){
-        let ingredients = {}
-        for(let i = 0; i <15; i++){
-            let ingredient = `strIngredient${i}`
-            let measurement = `strMeasure${i}`
-            if(result[ingredient] != null){
-                let encodedIngredient = encodeURIComponent(result[ingredient])
-                if(result[measurement] != null){
-                    let encodedMeasurement = encodeURIComponent(result[measurement])
-                    ingredients[encodedIngredient] = encodedMeasurement
-                }
-                else{
-                    ingredients[encodedIngredient] = 0
-                }
-            }
-        }
-        try{
-            nutritionalApi(ingredients).then(data => {
-                let totalCautions = []
-                let totalCalories = 0
-                console.log(data);
-                data.forEach(obj => {
-                    let { calories, cautions } = obj
-                    totalCalories += calories
-                    if(cautions.length != 0){
-                        if(!totalCautions.includes(cautions)){
-                            totalCautions = [...totalCautions, ...cautions]
-                        }
-                    }
-                })
-                console.log({totalCalories, totalCautions});
-            })
-        }
-        catch{
-            console.log("can't get the nutritional data");
-        }
-    }
+    let drink = drinkArr.find(item => item.idDrink === id)
+    fetchNutrition(drink).then((result) => {
+        console.log(result);
+    })
 })
