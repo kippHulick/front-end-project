@@ -67,7 +67,7 @@
   .card{
     list-style: none;
     position: relative;
-   height: 69%;
+   height: 100%;
    display: inline-grid;
  
   }

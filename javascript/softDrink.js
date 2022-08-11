@@ -38,3 +38,4 @@ ordDrink().then(data => {
   document.querySelector('.card-grid').innerHTML = htmlStr
   document.querySelector('.md').innerHTML = modalStr
 })
+
