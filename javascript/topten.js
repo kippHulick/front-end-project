@@ -15,7 +15,7 @@ fetch('https://www.thecocktaildb.com/api/json/v2/9973533/popular.php')
         console.log(drink);
         let container = document.createElement('div')
         container.setAttribute('class', 'drink')
-        container.innerHTML = `<a data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="card" href="#">
+        container.innerHTML = `<a  class="card" href="#">
         <div class="card__background" style="background-image: url(${drink.strDrinkThumb})"></div>
         <div class="card__content">
           <p class="card__category">${drink.strCategory}</p>
