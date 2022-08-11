@@ -8,6 +8,8 @@
 
 // import { nutritionalApi } from './nutrition';
 
+
+
 const drinkArr = []
 const modal = document.querySelector('#modal')
 
