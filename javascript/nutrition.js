@@ -1,21 +1,21 @@
-class DrinkInfo{
-    constructor(name, ingredients, measurements){
+// class DrinkInfo{
+//     constructor(name, ingredients, measurements){
         
-        this.name = name
-        this.ingredients = ingredients
-        this.measurements = measurements
+//         this.name = name
+//         this.ingredients = ingredients
+//         this.measurements = measurements
         
-    }
+//     }
     
-}
+// }
 
-class DrinkInfoStandard{
-    constructor(name, ingredientsInOz){
+// class DrinkInfoStandard{
+//     constructor(name, ingredientsInOz){
 
-        this.name = name
-        this.ingredientsInOZ = ingredientsInOz
-    }
-}
+//         this.name = name
+//         this.ingredientsInOZ = ingredientsInOz
+//     }
+// }
 
 
 // Converts all ridiculous units of measurement used in the API to one standard unit, which is an oz.
@@ -95,39 +95,34 @@ let fractionConverter = (fraction) =>{
         return 0.5
     }
 
-for(let i = 0; i < fraction.length; i++){
+    for(let i = 0; i < fraction.length; i++){
     
-    if(fraction[i + 1] == ' '){
-        
-        whole = fraction.slice(0, i + 1)
-        whole = parseFloat(whole)
-        
-        fraction = fraction.slice(i + 2, fraction.length)
-        
+        if(fraction[i + 1] == ' '){
+            
+            whole = fraction.slice(0, i + 1)
+            whole = parseFloat(whole)
+            
+            fraction = fraction.slice(i + 2, fraction.length)
+            
+        }
     }
-}
 
-for(let i = 0; i < fraction.length; i++){
-    
-    if(fraction[i] == '/'){
+    for(let i = 0; i < fraction.length; i++){
         
-        let numerator = fraction.slice(0, i)
-        let denomenator = fraction.slice(i + 1, fraction.length)
-        
-        decimal = numerator / denomenator
-        decimal = parseFloat(decimal)
-        
-    }        
+        if(fraction[i] == '/'){
+            
+            let numerator = fraction.slice(0, i)
+            let denomenator = fraction.slice(i + 1, fraction.length)
+            
+            decimal = numerator / denomenator
+            decimal = parseFloat(decimal)
+            
+        }        
+    }
+
+    return whole + decimal
+
 }
-
-return whole + decimal
-
-}
-
-
-
-
-
 
 let measurementConverter = (string) => {
     
@@ -209,130 +204,36 @@ let measurementConverter = (string) => {
 
 }
 
-
-
-//!#####################################################################################################################
-
-const getDrinks = async () => {
-    
-    // From this line to 232, alls that is being done is arrays are being made in order to fetch all of the avalible drinks from the api, a straightforward way to get every avalible drink was the API's 'list all cokctails by first letter', which was why I opted to loop through the alphabet. 
-    let drinkArr = [];
-    let finDrinkArr = [];
-    let resultsArr = [];
-    let alphabet = 'abcdefghijklmnopqrstuvwxyz';
-    
-    let drinkInfoArr = []
-    
-    for(let i = 0; i < alphabet.length; i++){
-        
-        let drinks = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${alphabet[i]}`);
-        resultsArr = await drinks.json();
-        
-        drinkArr.push(resultsArr)
-        
-    }
-    
-    //This monstrosety is as far as I can tell necessary to fetch all of the ingredients and measurements for each drink.
-    //The data is stored in a variable (i1, m5, etc.), then pushed to an array to make a list of ingredients/ measurements. Next, an object is made to store the names, mesurements and ingredients, then that object is added to its own list in order to make a list of objects with name, measurement, and ingredient attributes.
-    for(let i = 0; i < drinkArr.length; i++){
-        
-        try{
-            
-            for(let j = 0; j < drinkArr[i]['drinks'].length; j++){
-    
-                let i1 = drinkArr[i]['drinks'][j].strIngredient1
-                let i2 = drinkArr[i]['drinks'][j].strIngredient2
-                let i3 = drinkArr[i]['drinks'][j].strIngredient3
-                let i4 = drinkArr[i]['drinks'][j].strIngredient4
-                let i5 = drinkArr[i]['drinks'][j].strIngredient5
-                let i6 = drinkArr[i]['drinks'][j].strIngredient6
-                let i7 = drinkArr[i]['drinks'][j].strIngredient7
-                let i8 = drinkArr[i]['drinks'][j].strIngredient8
-                let i9 = drinkArr[i]['drinks'][j].strIngredient9
-                let i10 = drinkArr[i]['drinks'][j].strIngredient10
-                let i11 = drinkArr[i]['drinks'][j].strIngredient11
-                let i12 = drinkArr[i]['drinks'][j].strIngredient12
-                let i13 = drinkArr[i]['drinks'][j].strIngredient13
-                let i14 = drinkArr[i]['drinks'][j].strIngredient14
-                let i15 = drinkArr[i]['drinks'][j].strIngredient15
-                
-                let m1 = drinkArr[i]['drinks'][j].strMeasure1
-                let m2 = drinkArr[i]['drinks'][j].strMeasure2
-                let m3 = drinkArr[i]['drinks'][j].strMeasure3
-                let m4 = drinkArr[i]['drinks'][j].strMeasure4
-                let m5 = drinkArr[i]['drinks'][j].strMeasure5
-                let m6 = drinkArr[i]['drinks'][j].strMeasure6
-                let m7 = drinkArr[i]['drinks'][j].strMeasure7
-                let m8 = drinkArr[i]['drinks'][j].strMeasure8
-                let m9 = drinkArr[i]['drinks'][j].strMeasure9
-                let m10 = drinkArr[i]['drinks'][j].strMeasure10
-                let m11 = drinkArr[i]['drinks'][j].strMeasure11
-                let m12 = drinkArr[i]['drinks'][j].strMeasure12
-                let m13 = drinkArr[i]['drinks'][j].strMeasure13
-                let m14 = drinkArr[i]['drinks'][j].strMeasure14
-                let m15 = drinkArr[i]['drinks'][j].strMeasure15
-                
-                
-                let ingredientArr = []
-                
-                let measurementArr = []
-                
-                ingredientArr.push(i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15)
-                
-                measurementArr.push(m1, m2, m3, m4, m5, m6 ,m7, m8, m9, m10, m11, m12, m13, m14, m15)
-                
-                let drink = new DrinkInfo(drinkArr[i]['drinks'][j].strDrink, ingredientArr, measurementArr)
-                
-                drinkInfoArr.push(drink)
-                
-            }
-        }
-        catch(error){
-            console.error(error);
-        }
-        
-    }
-    
-    
-    for(let i = 0; i < drinkInfoArr.length; i++){
-
-        for(let j = 0; j < drinkInfoArr[i].measurements.length; j++){
-            
-            if(drinkInfoArr[i].measurements[j] != null){
-                
-                // console.log(drinkInfoArr[i].measurements[j]);
-                // console.log(measurementConverter(drinkInfoArr[i].measurements[j]));
-                // if(Object.is(measurementConverter(drinkInfoArr[i].measurements[j]), NaN) ){
-
-                //     console.log('lol');
-                // }
-
-                drinkInfoArr[i].measurements[j] = measurementConverter(drinkInfoArr[i].measurements[j])
-
-                let ingrWithMeas = ''
-
-                ingrWithMeas += drinkInfoArr[i].measurements[j]
-                ingrWithMeas += drinkInfoArr[i].ingredients[j]
-
-                let finDrink = new DrinkInfoStandard(drinkInfoArr[i].name, ingrWithMeas)
-
-                finDrinkArr.push(finDrink)
-            }
-        }
-    }
-
-    console.log(finDrinkArr);
-}
-
-getDrinks()
-
 const nutritionalApi = (ingredientObj) => {
     let promArr = []
     for(var ingredient in ingredientObj){
         let measurement = ingredientObj[ingredient]
-        console.log(measurement);
         let nutritionData = fetch(`https://api.edamam.com/api/nutrition-data?app_id=947442c5&app_key=7d67cd8d38672973b94c98b7764b8ff0&nutrition-type=cooking&ingr=${measurement}%20${ingredient}`).then(resp => resp.json())
         promArr.push(nutritionData)
     }
     return Promise.all(promArr)
+}
+
+const fetchNutrition = async (drinkObj) => {
+    let ingredients = {}
+    for(let i = 0; i <15; i++){
+        let ingredient = `strIngredient${i}`
+        let measurement = `strMeasure${i}`
+        if(drinkObj[ingredient] != null){
+            let encodedIngredient = encodeURIComponent(drinkObj[ingredient])
+            if(drinkObj[measurement] != null){
+                let encodedMeasurement = encodeURIComponent(measurementConverter(drinkObj[measurement]))
+                ingredients[encodedIngredient] = encodedMeasurement
+            }
+            else{
+                ingredients[encodedIngredient] = 0
+            }
+        }
+    }
+    try{
+        return  nutritionalApi(ingredients).then(data => data)
+    }
+    catch{
+        console.log("can't get the nutritional data");
+    }
 }
