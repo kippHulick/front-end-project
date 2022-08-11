@@ -15,14 +15,14 @@ ordDrink().then(data => {
       let drink = drinkObj.drinks[i]
       console.log(drinkObj.drinks[i]);
       let { strDrink, strDrinkThumb, strCategory, idDrink } = drink
-      htmlStr += `<a class="card ${idDrink}" href="#${idDrink}" id="${strDrink}">
+      htmlStr += `<a class="card" href="#${idDrink}" id="${strDrink}">
       <div class="card__background" style="background-image: url(${strDrinkThumb})"></div>
       <div class="card__content">
         <p class="card__category">${strCategory}</p>
         <h3 class="card__heading">${strDrink}</h3>
       </div>
     </a>
-`       
+`
       modalStr += `      <div class="modal-container" id="${idDrink}">
       <div class="modal">
         <h1 class="modal__title">${strDrink}</h1>
@@ -33,20 +33,9 @@ ordDrink().then(data => {
     </div>
     </div>
       </div>`
-      document.querySelector(`.${idDrink}`).addEventListener('click',()=>{
-        fetch(`www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${idDrink}`)
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-      })
       }
   })
   document.querySelector('.card-grid').innerHTML = htmlStr
   document.querySelector('.md').innerHTML = modalStr
-  document.querySelector(`.${idDrink}`).addEventListener('click',()=>{
-    fetch(`www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${idDrink}`)
-  .then((response) => response.json())
-  .then((data) => console.log(data));
-  })
 })
-
 
