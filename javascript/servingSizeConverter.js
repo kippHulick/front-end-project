@@ -196,14 +196,18 @@ let measurementConverter = (string) => {
     //This handles the edge case when there is a quantity like 'ingredient: cherrries' 'measurement: 2', if there's no unit type associated, then no transition to oz can be made. 
     if(unitType == '' || unitType == 'fresh'){
         
-        return 'no unit type associated'
+        return quantity + ' '
     }
     
     //passes the unit type to the dictionary which will convert 1 of that unit to oz. 
     let inOz = convertToOz[unitType]
     
-    
-    return quantity * inOz
+    let final = quantity * inOz
+
+    final += ' oz '
+
+    return final
+
 }
 
 
@@ -309,7 +313,7 @@ const getDrinks = async () => {
                 let ingrWithMeas = ''
 
                 ingrWithMeas += drinkInfoArr[i].measurements[j]
-                ingrWithMeas += ' oz ' + drinkInfoArr[i].ingredients[j]
+                ingrWithMeas += drinkInfoArr[i].ingredients[j]
 
                 let finDrink = new DrinkInfoStandard(drinkInfoArr[i].name, ingrWithMeas)
 
