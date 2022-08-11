@@ -51,10 +51,61 @@
     text-align: right;
   }
   
-  @media(min-width: 540px){
-    .card-grid{
-      grid-template-columns: repeat(2, 1fr); 
+  @media screen and (max-width: 500px){
+    .hero-section{
+      align-items: flex-start;
+      background-image:linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.30)), url(https://cdn.theculturetrip.com/wp-content/uploads/2016/04/black-and-white-alcohol-bar-drinks.jpg);
+      background-repeat: no-repeat;
+      background-size: 100vh 100vw;
+      display: flex;
+      min-height: 100vh;
+      justify-content: center;
+      padding: var(--spacing-xxl) var(--spacing-l);
+      position: relative;
     }
+
+    body{
+      background: linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.30));
+      height: 100%;
+    }
+    .card-grid{
+      top: 400px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); 
+      grid-column-gap: var(--spacing-m);
+      grid-row-gap: var(--spacing-l);
+      max-width: var(--width-container);
+      width: 100%;
+      position: absolute;
+      text-align: right;
+      padding: 10px;
+    }
+    .header{
+      text-align: center;
+      font-style: italic;
+
+    }
+    h1{
+      font-size: 100px;
+      margin-left: 100px;
+    }
+
+    span {
+      transform: rotate(-15deg);
+      -ms-transform: rotate(-15deg);	 /*  for IE  */
+  
+      /* 	for browsers supporting webkit (such as chrome, firefox, safari etc.). */
+      -webkit-transform: rotate(-15deg);
+      display: inline-block;
+      text-align: center;
+      color: yellow;
+      bottom: 200px;
+      font-family: 'Lobster', cursive;
+      height: 5px;
+      line-height: 1;
+      text-decoration: underline;
+      position: absolute;
+  }
   }
   
   @media(min-width: 960px){
@@ -141,7 +192,7 @@
     display: inline-block;
     text-align: center;
     color: yellow;
-    bottom: 0px;
+    bottom: 10px;
     font-family: 'Lobster', cursive;
     height: 100%;
     line-height: 4;
