@@ -299,13 +299,6 @@ const getDrinks = async () => {
         for(let j = 0; j < drinkInfoArr[i].measurements.length; j++){
             
             if(drinkInfoArr[i].measurements[j] != null){
-                
-                // console.log(drinkInfoArr[i].measurements[j]);
-                // console.log(measurementConverter(drinkInfoArr[i].measurements[j]));
-                // if(Object.is(measurementConverter(drinkInfoArr[i].measurements[j]), NaN) ){
-
-                //     console.log('lol');
-                // }
 
                 drinkInfoArr[i].measurements[j] = measurementConverter(drinkInfoArr[i].measurements[j])
 
