@@ -15,7 +15,7 @@ ordDrink().then(data => {
         let drink = drinkObj.drinks[i]
         console.log(drinkObj.drinks[i]);
         let { strDrink, strDrinkThumb, strCategory, idDrink } = drink
-        htmlStr += `<a class="card link-1" href="#${idDrink}" id="${strDrink}">
+        htmlStr += `<a class="card" href="#${idDrink}" id="${strDrink}">
         <div class="card__background" style="background-image: url(${strDrinkThumb})"></div>
         <div class="card__content">
           <p class="card__category">${strCategory}</p>
@@ -26,7 +26,7 @@ ordDrink().then(data => {
         modalStr += `      <div class="modal-container" id="${idDrink}">
         <div class="modal">
           <h1 class="modal__title">${strDrink}</h1>
-          <p class="modal__text"> Lime</p>
+          <p class="modal__text"> ${strCategory}</p>
           <button class="modal__btn">Button &rarr;</button>
           <a href="#" class="link-2"></a>
         </div>
