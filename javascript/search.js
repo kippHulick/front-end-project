@@ -17,14 +17,13 @@ addEventListener('submit', (e)=>{
             console.log(drink);
             let container = document.createElement('div')
             container.setAttribute('class', 'drink')
-            container.innerHTML = `<a  class="card" href="#">
+            container.innerHTML = `<div class="card" id="${drink.idDrink}" href="#">
             <div class="card__background" style="background-image: url(${drink.strDrinkThumb})"></div>
             <div class="card__content">
               <p class="card__category">${drink.strCategory}</p>
               <h3 class="card__heading">${drink.strDrink}</h3>
-              
             </div>
-          </a>`
+          </div>`
           cardGrid.append(container);
         console.log(data['drinks']);
         }
