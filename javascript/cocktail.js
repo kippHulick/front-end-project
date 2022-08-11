@@ -8,16 +8,21 @@ const ordDrink = async () => {
   console.log('1');
   return promise
 }
+
+const getDrink = async (n) => {
+  let drinkFetch = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${n}`)
+  let drinkResult = await drinkFetch.json()
+  console.log('3');
+  return drinkResult
+}
 ordDrink().then(data => {
   let htmlStr = ''
   let modalStr = ''
   console.log('2');
   for (let d = 0; d < data[0].drinks.length; d++) {
-      fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${data[0].drinks[d].idDrink}`)
-      .then(result => result.json())
-      .then(drinkResult => {
-        console.log('3');
-        let drink = drinkResult.drinks[0]
+        getDrink(data[0].drinks[d].idDrink)
+        .then( drink => {
+          console.log(drink);
         let { strDrink, strDrinkThumb, strCategory, idDrink, strInsctructions } = drink
         htmlStr += `<a class="card" href="#${idDrink}" id="${strDrink}">
         <div class="card__background" style="background-image: url(${strDrinkThumb})"></div>
@@ -36,11 +41,11 @@ ordDrink().then(data => {
         </div>
       </div>
       </div>
-        </div>`
+        </div>`})
         
-        console.log('4');
-        document.querySelector('.card-grid').innerHTML += htmlStr
-        document.querySelector('.md').innerHTML += modalStr
-      })
-    }
+        
+      }
+      console.log('4');
+      document.querySelector('.card-grid').innerHTML += htmlStr
+      document.querySelector('.md').innerHTML += modalStr
   })
