@@ -19,7 +19,7 @@ ordDrink().then(data => {
   let htmlStr = ''
   let modalStr = ''
   console.log('2');
-  for (let d = 0; d < data[0].drinks.length; d++) {
+  for (let d = 0; d < 199; d++) {
         getDrink(data[0].drinks[d].idDrink)
         .then( drink => {
           console.log(drink);

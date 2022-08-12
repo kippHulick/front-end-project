@@ -23,18 +23,8 @@ ordDrink().then(data => {
       </div>
     </a>
 `
-      modalStr += `      <div class="modal-container" id="${idDrink}">
-      <div class="modal">
-        <h1 class="modal__title">${strDrink}</h1>
-        <p class="modal__text"> ${strCategory}</p>
-        <button class="modal__btn">Button &rarr;</button>
-        <a href="#" class="link-2"></a>
-      </div>
-    </div>
-    </div>
-      </div>`
+
       }
   })
   document.querySelector('.card-grid').innerHTML = htmlStr
-  document.querySelector('.md').innerHTML = modalStr
 })
