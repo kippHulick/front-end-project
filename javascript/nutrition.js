@@ -272,46 +272,24 @@ const appearModal = async (web) =>{
     instructions = drink['strInstructions']
     
     
-    // console.log(calories);
-    // console.log(ingredients);
-    // console.log(measurements);
-    // console.log(instructions);
-    
-
-    // modal = document.querySelector('.md')
-    // modal.innerHTML =`      
-                    
     return  `                 
     
     <div class="modal-container" id="${drink.idDrink}">
     <div class="modal">
       <h1 class="modal__title">${drink.strDrink}</h1>
-      <p class="modal__text"> ${calories}</p>
+      <p class="modal__text"> Calories ${calories}</p>
       <p class="modal__text"> Ingredients ${ingredients} </p>
       <p class="modal__text"> Measurements ${measurements}</p>
       <p class="modal__text"> Instructions ${instructions}</p>
       <button class="modal__btn">Button &rarr;</button>
-      <a href="#" class="link-2" id="x"></a>
+      <a href="#" class="link-2" id="x" title='x'></a>
     </div>
   </div>
   </div>
     </div>`
 
-    console.log(`
-    <div class="modal-container" id="${drink.idDrink}">
-    <div class="modal">
-    <h1 class="modal__title">${drink.strDrink}</h1>
-    <p class="modal__text"> Calories: ${calories}</p>
-    <p class="modal__text"> Ingredients ${ingredients} </p>
-    <p class="modal__text"> Measurements ${measurements}</p>
-    <p class="modal__text"> Instructions ${instructions}</p>
-    <button class="modal__btn">Button &rarr;</button>
-    <a href="#" class="link-2" id="x"></a>
-    </div>
-
-    `
-    );
-    
 }
 
-appearModal('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007')
+
+
+

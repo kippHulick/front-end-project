@@ -1,9 +1,8 @@
 const ordDrink = async () => {
   let promArr = []
-  for(let i =0; i < 1; i++ ){
       let randDrink = await fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail').then(resp => resp.json())
       promArr.push(randDrink)
-  }
+
   let promise = await Promise.all(promArr)
   console.log('1');
   return promise
