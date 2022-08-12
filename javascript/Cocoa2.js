@@ -1,10 +1,10 @@
 const drinkArr = []
 const modal = document.querySelector('.md')
 
-const ordDrink = () => {
+const randomDrinks = () => {
     let promArr = []
-        let randDrink =  fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocoa').then(resp => resp.json())
-
+    let randDrink =  fetch('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocoa').then(resp => resp.json())
+    promArr.push(randDrink)
     return Promise.all(promArr)
 }
 
@@ -12,9 +12,10 @@ try{
 
     randomDrinks().then(data => {
         let htmlStr = ''
-        
+        console.log(data);
         data.forEach(drinkObj => {
-            let drink = drinkObj.drinks[0]
+            for(let i = 0; i < drinkObj.drinks.length; i++){
+            let drink = drinkObj.drinks[i]
             drinkArr.push(drink)
             let { strDrink, strDrinkThumb, strCategory, idDrink } = drink
             htmlStr += 
@@ -25,8 +26,9 @@ try{
                     <h3 class="card__heading" id="${idDrink}" title="card">${strDrink}</h3>
                 </div>
         </div>`
-
+            }
         })
+        
         document.querySelector('.card-grid').innerHTML = htmlStr
     })
 }
@@ -44,9 +46,9 @@ document.addEventListener('click', e => {
         appearModal(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${thisId}`).then((result)=>{
 
             modal.innerHTML = result
+            modal.style.display = 'flex';
         })
 
-        modal.style.display = 'flex';
     }
 
     if(e.target.title == 'x'){
