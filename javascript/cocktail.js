@@ -28,6 +28,7 @@ try{
         </div>`
             }
         })
+
         
         document.querySelector('.card-grid').innerHTML = htmlStr
     })
