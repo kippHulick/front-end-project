@@ -22,7 +22,7 @@ try{
         `<div class="card" id="${idDrink}" title="card" href="#">
             <div class="card__background" style="background-image: url(${strDrinkThumb})" id="${idDrink}" title="card"></div>
                 <div class="card__content" id="${idDrink}" title="card">
-                    <p class="card__category" id="${idDrink}" title="card">${strCategory}</p>
+                    <p class="card__category" id="${idDrink}" title="card">Shake</p>
                     <h3 class="card__heading" id="${idDrink}" title="card">${strDrink}</h3>
                 </div>
         </div>`

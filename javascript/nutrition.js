@@ -1,23 +1,3 @@
-// class DrinkInfo{
-//     constructor(name, ingredients, measurements){
-        
-//         this.name = name
-//         this.ingredients = ingredients
-//         this.measurements = measurements
-        
-//     }
-    
-// }
-
-// class DrinkInfoStandard{
-//     constructor(name, ingredientsInOz){
-
-//         this.name = name
-//         this.ingredientsInOZ = ingredientsInOz
-//     }
-// }
-
-
 // Converts all ridiculous units of measurement used in the API to one standard unit, which is an oz.
 
 let convertToOz ={
@@ -72,7 +52,7 @@ let convertToOz ={
     'handful': 3,
     'scoop': 0.5,
     'fifth':25.4, 
-    'topup': 1, 
+    'top': 1, 
     'filltotopwith': 1,
     'part': 1.5
 }

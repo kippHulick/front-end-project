@@ -7,38 +7,43 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="../css/searchstyle.css">
-    <!-- <link rel="stylesheet" href="../css/rumstyle.css"> -->
-    
+    <link rel="stylesheet" href="../css/rumstyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"> 
+        
+    </head>
+    <body>
 
-</head>
-<body>
-    <div class="topnav sticky" >
-        <a class="active" href="../homepage.html">Home</a>
-        <a href="pages/category.html">Category</a>
-        <a href="pages/search.html">Search</a>
-        <a href="pages/random.html">Random</a>
-        <a href="pages/topTen.html">Top10</a>
-      </div>
-    <section class="hero-section">
-    <span class="header">   
-        <h1>Search</h1>
-  
-    </span>
-    <div class="box">
-        <form name="search">
-            <input type="text" class="input" name="txt" onmouseout="this.value = ''; this.blur();">
-        </form>
-        <i class="fa fa-search" id="icon"></i>
-    </div>
+        <div class="md"></div>
+
+        <!-- <div class="topnav sticky" >
+            <a class="active" href="../homepage.html">Home</a>
+            <a href="pages/category.html">Category</a>
+            <a href="pages/search.html">Search</a>
+            <a href="pages/random.html">Random</a>
+            <a href="pages/topTen.html">Top10</a>
+        </div> -->
+
+        <section class="hero-section">
+        <span class="header">   
+            <h1>Search</h1>
     
-        <div class="card-grid">
+        </span>
+        <div class="box">
+            <form name="search">
+                <input type="text" class="input" name="txt" onmouseout="this.value = ''; this.blur();">
+            </form>
+            <i class="fa fa-search" id="icon"></i>
         </div>
-    </section>        
+        
+            <div class="card-grid">
+            </div>
+        </section>        
 
-    <script src="../javascript/search.js"></script>    
+
+    <script src="../javascript/search.js"></script>
+    <script src="../javascript/nutrition.js"></script>
 </body>
 </html>
