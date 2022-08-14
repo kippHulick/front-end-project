@@ -28,7 +28,7 @@ The minimum viable product for this project was an web page that displays cockta
 
 * Search by ingredient that allows you to search drinks by ingredients that they contain
 
-## Screenshots of code and the webpage:
+## Screenshots of the webpage:
 
 
 ![Screenshot 2022-08-14 150054](https://user-images.githubusercontent.com/107579894/184551426-db4667b2-42aa-4898-a1cb-21f9a7526254.png)
