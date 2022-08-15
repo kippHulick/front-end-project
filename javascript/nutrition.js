@@ -263,7 +263,6 @@ const appearModal = async (web) =>{
       <p class="modal__text"> Calories: ${calories}</p>
       <p class="modal__text"> Ingredients: ${ingredientString} </p>
       <p class="modal__text"> Instructions: ${instructions}</p>
-      <button class="modal__btn">Button &rarr;</button>
       <a href="#" class="link-2" id="x" title='x'></a>
     </div>
   </div>`
