@@ -42,6 +42,7 @@ The minimum viable product for this project was an web page that displays cockta
 ## Dev Team
 
 [Austin Desana:](https://github.com/adesana)
+-A lot of CSS
 
 [Christian Votion:](https://github.com/cvotion)
 
