@@ -28,7 +28,7 @@ try{
         let htmlStr = ''
         console.log(data);
         data.forEach(drinkObj => {
-            for(let i = 0; i < drinkObj.drinks.length; i++){
+            for(let i = 0; i < 10; i++){
             let drink = drinkObj.drinks[i]
             drinkArr.push(drink)
             let { strDrink, strDrinkThumb, strCategory, idDrink } = drink
