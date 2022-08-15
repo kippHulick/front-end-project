@@ -49,7 +49,8 @@ const getDrinks = async () => {
                     
                     if(drinks[ingredient] != null){
                         
-                        ingArr.push(drinks[ingredient])
+                        let ingredientInLower = drinks[ingredient].toLowerCase()
+                        ingArr.push(ingredientInLower)
                     }
                 }
                 
@@ -71,7 +72,7 @@ const getDrinks = async () => {
         const randomDrinks = () => {
             
             e.preventDefault()
-            let drinkSearch = (input.value)
+            let drinkSearch = (input.value.toLowerCase())
             let promArr = []
             
             
