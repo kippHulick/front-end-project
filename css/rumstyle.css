@@ -361,8 +361,8 @@
     
 }
 li.menu_list {
-    height: 85px;
-    width: 85px;
+  height: 8vh;
+  width: 4.5vw;
     position: relative;
 }
 li.menu_list .front,
