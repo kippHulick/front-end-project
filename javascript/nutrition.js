@@ -1,23 +1,3 @@
-// class DrinkInfo{
-//     constructor(name, ingredients, measurements){
-        
-//         this.name = name
-//         this.ingredients = ingredients
-//         this.measurements = measurements
-        
-//     }
-    
-// }
-
-// class DrinkInfoStandard{
-//     constructor(name, ingredientsInOz){
-
-//         this.name = name
-//         this.ingredientsInOZ = ingredientsInOz
-//     }
-// }
-
-
 // Converts all ridiculous units of measurement used in the API to one standard unit, which is an oz.
 
 let convertToOz ={
@@ -72,7 +52,7 @@ let convertToOz ={
     'handful': 3,
     'scoop': 0.5,
     'fifth':25.4, 
-    'topup': 1, 
+    'top': 1, 
     'filltotopwith': 1,
     'part': 1.5
 }
@@ -206,7 +186,7 @@ const nutritionalApi = (ingredientObj) => {
     let promArr = []
     for(var ingredient in ingredientObj){
         let measurement = ingredientObj[ingredient]
-        let nutritionData = fetch(`https://api.edamam.com/api/nutrition-data?app_id=947442c5&app_key=7d67cd8d38672973b94c98b7764b8ff0&nutrition-type=cooking&ingr=${measurement}%20${ingredient}`).then(resp => resp.json())
+        let nutritionData = fetch(`https://api.edamam.com/api/nutrition-data?app_id=95d963af&app_key=b2f4825985da4db9f37accc1c6db55cd&nutrition-type=cooking&ingr=${measurement}%20${ingredient}`).then(resp => resp.json())
         promArr.push(nutritionData)
     }
     return Promise.all(promArr)
@@ -251,42 +231,42 @@ const appearModal = async (web) =>{
     let ingredients = []
     let measurements = []
     let instructions = ''
+    let ingredientString = ''
     
-    fetchNutrition(drink).then((result) => {
+    await fetchNutrition(drink).then((result) => {
         for(let i = 0; i < result.length; i++){
-            
+    
             calories += result[i].calories
+
+
         }
     })
     
+    console.log(calories);
+
     for(let i = 0; i <15; i++){
         let ingredient = `strIngredient${i}`
         let measurement = `strMeasure${i}`
         if(drink[ingredient] != null){
             
-            ingredients.push(' ' +drink[ingredient])
-            measurements.push(' ' +drink[measurement])
+          ingredientString += `${drink[measurement]} ${drink[ingredient]}, \n`
         }
     }
     
     instructions = drink['strInstructions']
-    
     
     return  `                 
     
     <div class="modal-container" id="${drink.idDrink}">
     <div class="modal">
       <h1 class="modal__title">${drink.strDrink}</h1>
-      <p class="modal__text"> Calories ${calories}</p>
-      <p class="modal__text"> Ingredients ${ingredients} </p>
-      <p class="modal__text"> Measurements ${measurements}</p>
-      <p class="modal__text"> Instructions ${instructions}</p>
+      <p class="modal__text"> Calories: ${calories}</p>
+      <p class="modal__text"> Ingredients: ${ingredientString} </p>
+      <p class="modal__text"> Instructions: ${instructions}</p>
       <button class="modal__btn">Button &rarr;</button>
       <a href="#" class="link-2" id="x" title='x'></a>
     </div>
-  </div>
-  </div>
-    </div>`
+  </div>`
 
 }
 
