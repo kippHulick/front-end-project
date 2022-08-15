@@ -249,7 +249,7 @@ const appearModal = async (web) =>{
         let measurement = `strMeasure${i}`
         if(drink[ingredient] != null){
             
-          ingredientString += `${drink[measurement]} of ${drink[ingredient]}, \n`
+          ingredientString += `${drink[measurement]} ${drink[ingredient]}, \n`
         }
     }
     
