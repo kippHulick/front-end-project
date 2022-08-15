@@ -23,10 +23,12 @@ The minimum viable product for this project was an web page that displays cockta
 
 * Search function that allows you to find specific drinks
 * Random Drinks page that allows you to view 10 random drinks at a time
+* Search By Ingredient page that displays every drink that contains a specific Ingredient
 
 ## Stretch Goals To Be Completed
 
-* Search by ingredient that allows you to search drinks by ingredients that they contain
+* Allow the search by ingredient page to hold multiple ingredient queries at once
+* Display more nutritonal information than just the caloric content for each drink such as macros, sugar content, vitamins etc.
 
 ## Screenshots of the webpage:
 
