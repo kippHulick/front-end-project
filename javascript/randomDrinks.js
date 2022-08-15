@@ -1,10 +1,3 @@
-// https://www.thecocktaildb.com/api.php
-
-// Api key for the EDAMAM nutritional api
-//7d67cd8d38672973b94c98b7764b8ff0
-//app id 947442c5
-// example URL https://api.edamam.com/api/nutrition-data?app_id=947442c5&app_key=7d67cd8d38672973b94c98b7764b8ff0&nutrition-type=cooking&ingr=1%20shot%20orange%20juice
-//
 
 const drinkArr = []
 const modal = document.querySelector('.md')

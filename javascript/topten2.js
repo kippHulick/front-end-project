@@ -1,16 +1,3 @@
-// https://www.thecocktaildb.com/api/json/v2/9973533/popular.php
-
-// https://www.thecocktaildb.com/api.php
-
-// Api key for the EDAMAM nutritional api
-//7d67cd8d38672973b94c98b7764b8ff0
-//app id 947442c5
-// example URL https://api.edamam.com/api/nutrition-data?app_id=947442c5&app_key=7d67cd8d38672973b94c98b7764b8ff0&nutrition-type=cooking&ingr=1%20shot%20orange%20juice
-//
-
-// import { nutritionalApi } from './nutrition';
-
-
 
 const drinkArr = []
 const modal = document.querySelector('.md')
@@ -50,7 +37,6 @@ catch{
     console.log("Can't fetch the random drinks!");
 }
 
-
 document.addEventListener('click', e => {
         
     if(e.target.title == 'card'){
@@ -62,14 +48,12 @@ document.addEventListener('click', e => {
             modal.innerHTML = result
             modal.style.display = 'flex';
         })
-
     }
 
     if(e.target.title == 'x'){
 
         modal.style.display = 'none';
     }
-
 })
 
 
