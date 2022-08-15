@@ -42,6 +42,7 @@ The minimum viable product for this project was a web page that displays cocktai
 ## Dev Team
 
 [Austin Desana:](https://github.com/adesana)
+-A lot of CSS
 
 [Christian Votion:](https://github.com/cvotion)
 -Primary developer of the search by name feature used to search cocktails by keywords in their name, and the Top Ten drinks page that displays the most popular drinks in the API.
