@@ -5,7 +5,7 @@
 ## About the project
 
 
-What's in my Drink is a webstie tailored to someone who is a frequent enjoyer and mixer of cocktails in all shapes and sizes. This website will provide the user with an easy to navigate encyclopedia of a wide variety of cocktails; the user will be able to search for a specific drink, look up drinks by category, get 10 random drinks at a time if their feeling adventurous, and check out the most popular dinks if their unsure what they want. Once the user has found themself on a page of drinks they'd be interested in, each card contains a picture of what the finished product will look like, and the name of the drink. Once the user clicks on the drink, it displays information about the drink like what ingredients you'll need and their quantity, instructions on how to make the beverage, and the drink's nutritional information. 
+"What's in my Drink?" is a website tailored to someone who is a frequent enjoyer and mixer of cocktails in all shapes and sizes. This website will provide the user with an easy to navigate encyclopedia of a wide variety of cocktails; the user will be able to search for a specific drink, look up drinks by category, get 10 random drinks at a time if they're feeling adventurous, or check out the most popular dinks if they're unsure what they want. Once the user has found themselves on a page of drinks they'd be interested in, each card contains a picture of what the finished product will look like, and the name of the drink. Once the user clicks on the drink, it displays information about the drink like what ingredients you'll need and their quantity, instructions on how to make the beverage, and the drink's nutritional information. 
 
 ## Tech Stack
 
@@ -17,7 +17,7 @@ What's in my Drink is a webstie tailored to someone who is a frequent enjoyer an
 
 ## Minimum Viable Product
 
-The minimum viable product for this project was an web page that displays cocktails, then lists their measurements, ingredients, and calories when clicked on that can be used on mobile devices, and uses multiple API's. 
+The minimum viable product for this project was a web page that displays cocktails, then lists their measurements, ingredients, and calories when clicked on that can be used on mobile devices, and uses multiple API's. 
 
 ## Stretch Goals Complteted
 
@@ -44,6 +44,7 @@ The minimum viable product for this project was an web page that displays cockta
 [Austin Desana:](https://github.com/adesana)
 
 [Christian Votion:](https://github.com/cvotion)
+-Primary developer of the search by name feature used to search cocktails by keywords in their name, and the Top Ten drinks page that displays the most popular drinks in the API.
 
 [Kipp Hulick:](https://github.com/Battlepigg)
 
