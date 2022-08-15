@@ -48,6 +48,7 @@ The minimum viable product for this project was a web page that displays cocktai
 -Primary developer of the search by name feature used to search cocktails by keywords in their name, and the Top Ten drinks page that displays the most popular drinks in the API.
 
 [Kipp Hulick:](https://github.com/Battlepigg)
+-Responsible for the API calls and the handling of the incoming data
 
 [Thomas Zimmerman:](https://github.com/clintwestwords)
 -Primary developer of the measurementConverter and appearModal functions used to display the correct information to each drink modal, implimented the modal feature to each JS page, wrote this README file.

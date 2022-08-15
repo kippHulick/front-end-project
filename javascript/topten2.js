@@ -15,7 +15,7 @@
 const drinkArr = []
 const modal = document.querySelector('.md')
 
-const randomDrinks = () => {
+const topTenDrinks = () => {
     let promArr = []
     let randDrink =  fetch('https://www.thecocktaildb.com/api/json/v2/9973533/popular.php').then(resp => resp.json())
     promArr.push(randDrink)
@@ -24,7 +24,7 @@ const randomDrinks = () => {
 
 try{
 
-    randomDrinks().then(data => {
+    topTenDrinks().then(data => {
         let htmlStr = ''
         console.log(data);
         data.forEach(drinkObj => {
