@@ -216,7 +216,6 @@ const fetchNutrition = async (drinkObj) => {
     }
 }
 
-console.log();
 
 const appearModal = async (web) =>{
 
@@ -228,17 +227,12 @@ const appearModal = async (web) =>{
 
     
     let calories = 0
-    let ingredients = []
-    let measurements = []
     let instructions = ''
     let ingredientString = ''
-    
+
     await fetchNutrition(drink).then((result) => {
         for(let i = 0; i < result.length; i++){
-    
             calories += result[i].calories
-
-
         }
     })
     
