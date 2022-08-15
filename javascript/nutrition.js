@@ -186,7 +186,7 @@ const nutritionalApi = (ingredientObj) => {
     let promArr = []
     for(var ingredient in ingredientObj){
         let measurement = ingredientObj[ingredient]
-        let nutritionData = fetch(`https://api.edamam.com/api/nutrition-data?app_id=95d963af&app_key=b2f4825985da4db9f37accc1c6db55cd&nutrition-type=cooking&ingr=${measurement}%20${ingredient}`).then(resp => resp.json())
+        let nutritionData = fetch(`https://api.edamam.com/api/nutrition-data?app_id=dc87fba7&app_key=34623a294b32efd0ddffa8fcfe8abf78&nutrition-type=cooking&ingr=${measurement}%20${ingredient}`).then(resp => resp.json())
         promArr.push(nutritionData)
     }
     return Promise.all(promArr)
