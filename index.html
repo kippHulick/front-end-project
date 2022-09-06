@@ -3,55 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <meta name="viewport" content="width=`, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/homestyle.css">
+    <meta name="viewport" content="initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"> 
 </head>
 <body>
 
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <!-- <div class="topnav sticky" >
+    <a class="active" href="homepage.html">Home</a>
+    <a href="pages/category.html">Category</a>
+    <a href="pages/search.html">Search</a>
+    <a href="pages/random.html">Random</a>
+    <a href="pages/topTen.html">Top10</a>
+  </div> -->
+  
+
+
 
   <section class="hero-section">
-    <div class="card-grid">
-      <a class="card" href="#">
-        <div class="card__background" style="background-image: url(https://www.acouplecooks.com/wp-content/uploads/2021/06/Mai-Tai-001.jpg)"></div>
-        <div class="card__content">
-          <p class="card__category">Liquor</p>
-          <h3 class="card__heading">Rum</h3>
-        </div>
-      </a>
-      <a class="card" href="#">
-        <div class="card__background" style="background-image: url(https://www.acouplecooks.com/wp-content/uploads/2020/06/Wisconsin-Old-Fashioned-053.jpg)"></div>
-        <div class="card__content">
-          <p class="card__category">Liquor</p>
-          <h3 class="card__heading">Whiskey</h3>
-        </div>
-      </a>
-      <a class="card" href="#">
-        <div class="card__background" style="background-image: url(https://www.acouplecooks.com/wp-content/uploads/2020/07/Mezcal-Paloma-003.jpg)"></div>
-        <div class="card__content">
-          <p class="card__category">Liquor</p>
-          <h3 class="card__heading">Tequila</h3>
-        </div>
+    <ul class="menu">
+      <li class="menu_list">
+          <span class="front fa fa-home"></span>
+          <a href="homepage.html" class="side">Home</a>
       </li>
-      <a class="card" href="#">
-        <div class="card__background" style="background-image: url(https://www.acouplecooks.com/wp-content/uploads/2020/03/Vodka-Sour-008.jpg)"></div>
+      <li class="menu_list">
+          <span class="front fa fa-search"></span>
+          <a href="pages/search.html" class="side">Search</a>
+      </li>
+      <li class="menu_list">
+          <span class="front fa fa-glass"></span>
+          <a href="pages/searchByIngredient.html" class="side">Ingredient</a>
+      </li>
+      <li class="menu_list">
+          <span class="front fa fa-briefcase"></span>
+          <a href="pages/category.html" class="side">Categories</a>
+      </li>
+      <li class="menu_list">
+          <span class="front fa fa-thumbs-up"></span>
+          <a href="pages/topTen.html" class="side">10 Popular</a>
+      </li>
+      <li class="menu_list">
+        <span class="front fa fa-random"></span>
+        <a href="pages/random.html" class="side">10 Random</a>
+    </li>
+  </ul>
+    <span class="header">   
+        <h1>What's in my drink?</h1>
+  
+    </span>
+    
+    <div class="card-grid">
+      <a class="card" href="pages/random.html">
+        <div class="card__background" style="background-image: url(https://media.gettyimages.com/videos/neon-yellow-loop-question-mark-on-black-background-video-id1224882230?s=640x640)"></div>
         <div class="card__content">
-          <p class="card__category">Liquor</p>
-          <h3 class="card__heading">Vodka</h3>
+          <p class="card__category">Random</p>
+          <h3 class="card__heading">10 Random Drinks!</h3>
+          
         </div>
       </a>
-      <a class="card" href="#">
-        <div class="card__background" style="background-image: url(https://www.acouplecooks.com/wp-content/uploads/2019/06/Gin-Fizz-112s.jpg)"></div>
+      <a class="card" href="pages/topTen.html">
+        <div class="card__background" style="background-image: url(https://img.freepik.com/premium-vector/thumb-up-icon-vector-design-element_93487-2432.jpg)"></div>
         <div class="card__content">
-          <p class="card__category">Liquor</p>
-          <h3 class="card__heading">Gin</h3>
+          <p class="card__category">Popular</p>
+          <h3 class="card__heading">10 Popular Drinks!</h3>
         </div>
       </a>
+      <a class="card" href="pages/search.html">
+        <div class="card__background" style="background-image: url(https://cf.ltkcdn.net/antiques/images/std-xs/271439-340x227-antique-magnifying-glass-materials.jpg)"></div>
+        <div class="card__content">
+          <p class="card__category">Search</p>
+          <h3 class="card__heading">Find your cocktail!</h3>
+        </div>
+      </a>
+      <a class="card" href="pages/searchByIngredient.html">
+        <div class="card__background" style="background-image: url(https://www.gadgetreview.com/wp-content/uploads/best-magnifying-glass-320x242.png)"></div>
+        <div class="card__content">
+          <p class="card__category">Ingredient</p>
+          <h3 class="card__heading">Search by ingredient!</h3>
+        </div>
+      </a>
+        <a class="card" href="pages/category.html">
+          <div class="card__background" style="background-image: url(https://d3gz3j27p2eka6.cloudfront.net/sites/default/files/styles/image_gallery_xl/public/images/node/article/22-different-cocktails-garnishes.jpg?h=90e86623&itok=O5fN3kze)"></div>
+          <div class="card__content">
+            <p class="card__category">Category</p>
+            <h3 class="card__heading">Cocktail by Category!</h3>
+          </div>
+        </a>
+      </li>
+
+      </a>
+
     <div>
   </section>
->>>>>>> main
+
+  <script src="javascript/script.js"></script>
 </body>
 </html>
